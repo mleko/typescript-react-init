@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "target": "es5",
+        "module": "commonjs",
+        "jsx": "react",
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noLib": false,
+        "preserveConstEnums": true,
+        "suppressImplicitAnyIndexErrors": true
+    },
+    "filesGlob": [
+        "./**/*.ts",
+        "./**/*.tsx",
+        "!./node_modules/**/*"
+    ],
+    "files": [
+        "./typings/globals/react-dom/index.d.ts",
+        "./typings/globals/react/index.d.ts",
+        "./typings/index.d.ts",
+        "./index.tsx"
+    ],
+    "atom": {
+        "rewriteTsconfig": true
+    }
+}
