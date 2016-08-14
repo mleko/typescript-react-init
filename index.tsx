@@ -1,7 +1,15 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom'
 
-// Render a simple React h1 component into the body.
+class SampleComponent extends React.Component<void, void>{
+	render(){
+		return (
+			<h1>Hello, TypeScript!</h1>
+		);
+	}
+}
+
+// Render a simple React component into the body.
 let element = document.createElement('div');
 document.getElementsByTagName('body')[0].appendChild(element);
-ReactDOM.render(<h1>Hello, TypeScript!</h1>, element);
+ReactDOM.render(<SampleComponent/>, element);

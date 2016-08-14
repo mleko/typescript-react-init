@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "postinstall": "typings install",
     "start": "webpack-dev-server"
   },
   "license": "MIT",
@@ -11,9 +10,10 @@
     "react": "~0.14.7",
     "react-dom": "~0.14.7",
     "ts-loader": "~0.8.0",
-    "typescript": "^1.7.5",
-    "typings": "^1.0.4",
+    "typescript": "^2.0.0",
     "webpack": "~1.12.12",
-    "webpack-dev-server": "~1.10.1"
+    "webpack-dev-server": "~1.10.1",
+    "@types/react": "^0.14.29",
+    "@types/react-dom": "^0.14.14"
   }
 }
