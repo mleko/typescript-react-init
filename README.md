@@ -15,3 +15,6 @@ React + Typescript boilerplate application.
 
 
 ### [License (MIT)](LICENSE.md)
+
+### Credits
+Based on https://github.com/markogresak/typescript-react-jsx-example
