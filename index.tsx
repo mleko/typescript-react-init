@@ -1,13 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-
-class SampleComponent extends React.Component<void, void> {
-	public render(): JSX.Element {
-		return (
-			<h1>Hello, TypeScript!</h1>
-		);
-	}
-}
+import {SampleComponent} from "./src/SampleComponent";
 
 // Render a simple React component into the body.
 let element = document.createElement("div");
