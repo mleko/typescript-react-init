@@ -7,28 +7,28 @@ let config = {
         // .js is required for react imports.
         // .tsx is for our app entry point.
         // .ts is optional, in case you will be importing any regular ts files.
-        extensions: ['', '.js', '.ts', '.tsx']
+        extensions: ['.js', '.ts', '.tsx']
     },
     module: {
-        preLoaders: [
+        rules: [
             {
                 test: /\.tsx?$/,
-                loader: "tslint"
+                loader: "tslint-loader",
+                enforce: "pre"
+            },
+            {
+                // Set up ts-loader for .ts/.tsx files and exclude any imports from node_modules.
+                test: /\.tsx?$/,
+                loaders: isProduction ? ['ts-loader'] : ['react-hot-loader', 'ts-loader'],
+                exclude: /node_modules/
             }
-        ],
-        loaders: [{
-            // Set up ts-loader for .ts/.tsx files and exclude any imports from node_modules.
-            test: /\.tsx?$/,
-            loaders: isProduction ? ['ts-loader'] : ['react-hot', 'ts-loader'],
-            exclude: /node_modules/
-        }]
+        ]
     },
     entry: [
         // Set index.tsx as application entry point.
         './index.tsx'
     ],
     devServer: {
-        hot: true
     },
     plugins: [
         new webpack.DefinePlugin({
@@ -40,11 +40,11 @@ let config = {
 };
 
 if (!isProduction) {
-    config.entry.unshift(
-        'webpack-dev-server/client?http://localhost:8080',
-        'webpack/hot/dev-server'
+    config.plugins.unshift(
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin()
     );
-    config.plugins.unshift(new webpack.HotModuleReplacementPlugin());
+    config.devServer.hot = true;
 }
 
 module.exports = config;
