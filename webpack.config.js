@@ -28,8 +28,7 @@ let config = {
         // Set index.tsx as application entry point.
         './index.tsx'
     ],
-    devServer: {
-    },
+    devServer: {},
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {
@@ -45,6 +44,14 @@ if (!isProduction) {
         new webpack.NamedModulesPlugin()
     );
     config.devServer.hot = true;
+} else {
+    config.plugins.push(
+        new webpack.LoaderOptionsPlugin({
+            minimize: true,
+            debug: false
+        }),
+        new webpack.optimize.UglifyJsPlugin()
+    );
 }
 
 module.exports = config;
