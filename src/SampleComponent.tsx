@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Counter} from "./Counter";
-export class SampleComponent extends React.Component<void, void> {
+export class SampleComponent extends React.Component<{}, void> {
 
 	public render(): JSX.Element {
 		return (

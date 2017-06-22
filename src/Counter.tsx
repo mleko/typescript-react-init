@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export class Counter extends React.Component<void, State> {
+export class Counter extends React.Component<{}, State> {
 
 	public constructor(props) {
 		super(props);

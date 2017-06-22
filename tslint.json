@@ -18,7 +18,7 @@
       "check-separator",
       "check-type"
     ],
-    "max-line-length": false,
+    "max-line-length": [false],
     "eofline": false,
     "curly": false,
     "one-line": false,
