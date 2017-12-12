@@ -19,7 +19,7 @@ let config = {
             {
                 // Set up ts-loader for .ts/.tsx files and exclude any imports from node_modules.
                 test: /\.tsx?$/,
-                loaders: isProduction ? ['ts-loader'] : ['react-hot-loader', 'ts-loader'],
+                loaders: isProduction ? ['ts-loader'] : ['react-hot-loader/webpack', 'ts-loader'],
                 exclude: /node_modules/
             }
         ]
