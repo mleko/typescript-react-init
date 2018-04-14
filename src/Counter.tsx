@@ -2,6 +2,10 @@ import * as React from "react";
 
 export class Counter extends React.Component<{}, State> {
 
+	public static increment(value: number): number {
+		return value + 1;
+	}
+
 	public constructor(props) {
 		super(props);
 		this.state = {
@@ -19,8 +23,8 @@ export class Counter extends React.Component<{}, State> {
 	}
 
 	private click = () => {
-		this.setState({counter: (this.state.counter || 0) + 1});
-	}
+		this.setState({counter: Counter.increment(this.state.counter || 0)});
+	};
 }
 
 interface State {
