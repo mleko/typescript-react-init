@@ -3,6 +3,7 @@ import * as webpack from "webpack";
 const isProduction = process.env.NODE_ENV === "production";
 
 const config = {
+	mode: isProduction ? "production" : "development",
 	resolve: {
 		// .js is required for react imports.
 		// .tsx is for our app entry point.
@@ -24,10 +25,10 @@ const config = {
 			}
 		]
 	},
-	entry: [
+	entry: {
 		// Set index.tsx as application entry point.
-		"./index.tsx"
-	],
+		bundle: "./index.tsx"
+	},
 	devServer: {},
 	plugins: [
 		new webpack.DefinePlugin({
@@ -43,7 +44,7 @@ if (!isProduction) {
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NamedModulesPlugin()
 	);
-	config.devServer.hot = true;
+	config.devServer["hot"] = true;
 } else {
 	config.plugins.push(
 		new webpack.LoaderOptionsPlugin({
